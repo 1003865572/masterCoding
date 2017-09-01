@@ -1,0 +1,83 @@
+<style lang="less">
+
+.books{
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+  border-left: none;
+  border-right: none;
+  .content{
+    overflow: hidden;
+    padding: 0 1vw;
+  }
+  .items, .langue{
+    height: auto;
+    width: 100vw;
+  }
+  .langue{
+    margin-bottom: 2vw;
+  }
+  .item{
+    width: 25vw;
+    height: 29vw;
+    font-size: 3vw;
+    float: left;
+    background: #fff;
+    border-radius: 3px;
+    color: #000;
+    margin:0 .8vw;
+    position: relative;
+    .name{
+      margin-top: 10vw;
+      font-size: 3vw;
+      color: #0266FC;
+    }
+    .more{
+      font-size: 2vw
+    }
+    .type{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 2.5vw;
+      line-height: 7vw;
+      border-top: 1px solid #ccc;
+      width: 100%;
+    }
+  }
+}
+</style>
+<template>
+
+  <view class="books">
+    <scroll-view class="langue" scroll-x>
+      <view class="content" style="width: {{26.6 * 10}}vw">
+        <repeat for="{{[1,2,3,4,5,6,7,8,9,0]}}">
+          <view class="item">
+            <view class="name">Linux</view>
+            <view class="more">20个生词本</view>
+            <view class="type">词库</view>
+          </view>
+        </repeat>
+      </View>
+    </scroll-view>
+
+    <scroll-view class="items" scroll-x>
+      <view class="content" style="width: {{26.6 * 10}}vw">
+        <repeat for="{{[1,2,3,4,5,6,7,8,9,0]}}">
+          <view class="item">
+            <view class="name">Linux-nginx</view>
+            <view class="more">20个单词</view>
+            <view class="type">生词本</view>
+          </view>
+        </repeat>
+      </View>
+    </scroll-view>
+  </view>
+
+</template>
+<script lang="babel">
+  import wepy from 'wepy'
+  export default class books extends wepy.component {
+  }
+</script>
