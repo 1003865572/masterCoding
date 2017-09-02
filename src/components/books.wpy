@@ -52,7 +52,7 @@
   <view class="books">
     <scroll-view class="langue" scroll-x>
       <view class="content" style="width: {{26.6 * 10}}vw">
-        <repeat for="{{[1,2,3,4,5,6,7,8,9,0]}}">
+        <repeat for="{{books}}">
           <view class="item">
             <view class="name">Linux</view>
             <view class="more">20个生词本</view>
@@ -78,6 +78,55 @@
 </template>
 <script lang="babel">
   import wepy from 'wepy'
+  /*
+  {
+    id: 1,
+    name: 'javaScript'
+    type: '词库',
+    list: {
+      id: 1,
+      name: 'javaScript-react',w
+      type: '生词本',
+      list: {
+        en: 'component',
+        zh： '组件',
+        audio: ''
+      }
+    }
+  }
+  */
+  let word = null
+  let books = null
+  let book = null
+  word = {
+    en: 'component',
+    zh： '组件',
+    audio: ''
+  }
+  book = {
+    id: 1,
+    name: 'javaScript-react',
+    type: '生词本',
+    list: [word, word, word]
+  }
+  books = {
+    id: 1,
+    name: 'javaScript'
+    type: '词库',
+    list: [book, book, book]
+  }
+
   export default class books extends wepy.component {
+    data={
+      books: [
+        books,
+        books,
+        books
+      ],
+      selectData: {
+        books: 0,
+        book: 0
+      }
+    }
   }
 </script>
