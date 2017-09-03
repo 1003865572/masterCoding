@@ -1,14 +1,14 @@
 <style lang="less">
-
 .books{
   width: 100vw;
   height: auto;
-  overflow: hidden;
   border-left: none;
   border-right: none;
+  text-align: center;
   .content{
-    overflow: hidden;
+    height: 29vw;
     padding: 0 1vw;
+    display: inline-block;
   }
   .items, .langue{
     height: auto;
@@ -17,7 +17,12 @@
   .langue{
     margin-bottom: 2vw;
   }
+  .active{
+    box-shadow:0 5px 0 #000;
+  }
   .item{
+    border: 1px solid #fff;
+    box-sizing: border-box;
     width: 25vw;
     height: 29vw;
     font-size: 3vw;
@@ -51,9 +56,9 @@
 
   <view class="books">
     <scroll-view class="langue" scroll-x>
-      <view class="content" style="width: {{26.6 * 10}}vw">
-        <repeat for="{{books}}">
-          <view class="item">
+      <view class="content" style="width: {{26.6 * books.length}}vw">
+        <repeat for="{{books}}" index="i" item="item">
+          <view class="item {{i === 1 ? 'active' : ''}}">
             <view class="name">Linux</view>
             <view class="more">20个生词本</view>
             <view class="type">词库</view>
@@ -63,8 +68,8 @@
     </scroll-view>
 
     <scroll-view class="items" scroll-x>
-      <view class="content" style="width: {{26.6 * 10}}vw">
-        <repeat for="{{[1,2,3,4,5,6,7,8,9,0]}}">
+      <view class="content" style="width: {{26.6 * books[selectData.book].list.length}}vw">
+        <repeat for="{{books[selectData.book].list}}">
           <view class="item">
             <view class="name">Linux-nginx</view>
             <view class="more">20个单词</view>
@@ -79,6 +84,9 @@
 <script lang="babel">
   import wepy from 'wepy'
   /*
+    应该使用对象数组
+    一个存ID之间对关系
+    另一个存对象
   {
     id: 1,
     name: 'javaScript'
@@ -100,7 +108,7 @@
   let book = null
   word = {
     en: 'component',
-    zh： '组件',
+    zh: '组件',
     audio: ''
   }
   book = {
@@ -111,15 +119,14 @@
   }
   books = {
     id: 1,
-    name: 'javaScript'
+    name: 'javaScript',
     type: '词库',
     list: [book, book, book]
   }
 
-  export default class books extends wepy.component {
+  export default class Books extends wepy.component {
     data={
       books: [
-        books,
         books,
         books
       ],
