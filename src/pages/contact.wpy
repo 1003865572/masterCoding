@@ -1,0 +1,21 @@
+<style lang="less">
+  .container{
+    position: relative;
+  }
+</style>
+<template lang="wxml">
+  <view class="container">
+    练习页面
+    <keyboard />
+  </view>
+</template>
+<script lang="babel">
+  import wepy from 'wepy'
+  import keyboard from '../components/keyboard'
+
+  export default class contact extends wepy.page {
+    components={
+      keyboard: keyboard
+    }
+  }
+</script>

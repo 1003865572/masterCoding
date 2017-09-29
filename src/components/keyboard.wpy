@@ -1,0 +1,43 @@
+<style lang="less">
+  .keyboard{
+    width: 100vw;
+    height: 40vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+</style>
+<template lang="wxml">
+  <view class="keyboard">
+    键盘
+  </view>
+</template>
+<script lang="babel">
+  import wepy from 'wepy'
+
+  /*
+    开始：链接后台 webSocket
+      uid + code + bookId
+
+    倒计时
+
+    练习中
+      统计用户操作
+        退格次数
+        错误次数
+        用时
+
+    结束：（结束条件：所有单词打完一遍）
+      自己的上一个排名
+      比上一次好，还是比上一次差
+      是否继续
+        继续，再次联系
+        PK 微信好友
+
+  */
+
+  export default class KeyBoard extends wepy.component {
+    
+  }
+
+</script>

@@ -15,22 +15,24 @@
     width: 100vw;
   }
   .langue{
-    margin-bottom: 2vw;
   }
   .active{
-    box-shadow:0 5px 0 #000;
+    border: 2px solid #0266FC !important;
+  }
+  .item:active{
+    border: 2px solid #0266FC !important;
   }
   .item{
-    border: 1px solid #fff;
+    transition: all .2s;
+    border: 2px solid #282C37;
     box-sizing: border-box;
     width: 25vw;
     height: 29vw;
     font-size: 3vw;
     float: left;
     background: #fff;
-    border-radius: 3px;
+    border-radius: 5px;
     color: #000;
-    margin:0 .8vw;
     position: relative;
     .name{
       margin-top: 10vw;
@@ -56,7 +58,7 @@
 
   <view class="books">
     <scroll-view class="langue" scroll-x>
-      <view class="content" style="width: {{26.6 * books.length}}vw">
+      <view class="content" style="width: {{25 * books.length}}vw">
         <repeat for="{{books}}" index="i" item="item">
           <view class="item {{i === 1 ? 'active' : ''}}">
             <view class="name">Linux</view>
@@ -127,6 +129,12 @@
   export default class Books extends wepy.component {
     data={
       books: [
+        books,
+        books,
+        books,
+        books,
+        books,
+        books,
         books,
         books
       ],
